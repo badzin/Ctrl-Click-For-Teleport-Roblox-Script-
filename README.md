@@ -1,2 +1,14 @@
-# Ctrl-Click-For-Teleport-Roblox-Script-
-https://www.roblox.com/library/5152037495/MainModule?Category=Models&amp;SortType=Relevance&amp;SortAggregation=AllTime&amp;CreatorId=0&amp;Page=1&amp;Position=1&amp;SearchId=db9b1739-3e32-47d1-bc60-c061a1376765
+local Plr = game:GetService("Players").LocalPlayer
+local Mouse = Plr:GetMouse()
+
+Mouse.Button1Down:connect(
+    function()
+        if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+            return
+        end
+        if not Mouse.Target then
+            return
+        end
+        Plr.Character:MoveTo(Mouse.Hit.p)
+    end
+)
